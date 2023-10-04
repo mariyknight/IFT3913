@@ -6,7 +6,7 @@ public class tloc {
     public static void main(String[] args) {
         if(args.length < 1){
             System.out.println("");
-            return;
+            System.exit(1);
         }
 
         String filePath = args[0];

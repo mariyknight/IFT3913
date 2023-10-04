@@ -5,7 +5,7 @@ import java.io.IOException;
 public class tloc {
     public static void main(String[] args) {
         if(args.length < 1){
-            System.out.println("");
+            System.out.println("Veuillez entrer dans le terminal: java tloc <path_to_java_file>");
             System.exit(1);
         }
 

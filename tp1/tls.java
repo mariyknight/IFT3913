@@ -5,7 +5,7 @@ import java.util.List;
 public class tls {
     public static void main(String[] args) throws Exception {
         if (args.length < 1 || args.length > 3) {
-            System.out.println("Usage: java Tls [-o <path_output.csv>] <path_to_test_directory>");
+            System.out.println("Veuillez entrer dans le terminal: java tls [-o <path_output.csv>] <path_to_test_directory>");
             System.exit(1);
         }
 

@@ -31,4 +31,51 @@ public class tls {
                 .forEach(p -> processJavaFile(startPath, p, output));
     }
 
+    public static void processJavaFile(Path startPath, Path path, PrintStream output) {
+        try {
+            List<String> lines = Files.readAllLines(path);
+            String packageName = "";
+            boolean insideCommentBlock = false;
+    
+            int tloc = 0;
+            int tassert = 0;
+    
+            for (String line : lines) {
+                String trimmedLine = line.trim();
+    
+                if (trimmedLine.startsWith("/*") && !trimmedLine.endsWith("*/")) {
+                    insideCommentBlock = true;
+                }
+    
+                if (!insideCommentBlock && 
+                    !trimmedLine.isEmpty() && 
+                    !trimmedLine.startsWith("//") && 
+                    !trimmedLine.startsWith("/*") && 
+                    !trimmedLine.endsWith("*/")) {
+                    tloc++;
+                }
+    
+                if (trimmedLine.contains("assert")) {
+                    tassert++;
+                }
+    
+                if (trimmedLine.endsWith("*/")) {
+                    insideCommentBlock = false;
+                }
+    
+                if (trimmedLine.startsWith("package")) {
+                    packageName = trimmedLine.replace("package", "").replace(";", "").trim();
+                }
+            }
+    
+            String relativePath = "./" + startPath.relativize(path).toString();
+            String className = path.getFileName().toString().replace(".java", "");
+            double tcmp = (tassert == 0) ? 0 : (double) tloc / tassert;
+    
+            output.printf("%s, %s, %s, %d, %d, %.2f%n",
+                    relativePath, packageName, className, tloc, tassert, tcmp);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

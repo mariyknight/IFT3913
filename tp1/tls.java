@@ -23,4 +23,12 @@ public class tls {
             processDirectory(Paths.get(inputPath), output);
         }
     }
+
+    public static void processDirectory(Path startPath, PrintStream output) throws Exception {
+        Files.walk(startPath)
+                .filter(Files::isRegularFile)
+                .filter(p -> p.toString().endsWith(".java"))
+                .forEach(p -> processJavaFile(startPath, p, output));
+    }
+
 }

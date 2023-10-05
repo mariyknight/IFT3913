@@ -1,54 +1,63 @@
 import java.io.*;
 import java.nio.file.*;
 import java.util.*;
-//pr les calcul utiliser percentile...
-//metric : String path;
-//-----calcul pour sueil etc
-//        int tloc;
-//        int tassert;
-//        double tcmp;
-public class tropcomp {
-    public static void main(String[] args) throws Exception {
-        if (args.length < 2) {
-            System.out.println("Veuillez entrer dans le terminal: java tropcomp [-o <path_output.csv>] <path_to_test_directory> <seuil>");
+//----not working yet need % / seuil calculation and process project paths... 
+public class tropcomp {public static void main(String[] args) throws Exception {
+        if (args.length < 2 || args.length > 4) {
+            System.out.println("Veuillez entrer dans le terminal: java tropcomp [-o <path_output.csv>] <path_to_main_project> <threshold>");
             System.exit(1);
         }
-
+        
         String outputPath = null;
         String inputPath;
-        double seuil;
+        double threshold = 0;
 
         if (args[0].equals("-o")) {
             outputPath = args[1];
             inputPath = args[2];
-            seuil = Double.parseDouble(args[3]);
+            threshold = Double.parseDouble(args[3]);
         } else {
             inputPath = args[0];
-            seuil = Double.parseDouble(args[1]);
+            threshold = Double.parseDouble(args[1]);
         }
         
-        // Liste pour stocker les details des classes de test
-        List<Map<String, Object>> testClasses = new ArrayList<>();
-        
-        // Traiter le répertoire et calculer les mesures
-        testClasses = processDirectory(Paths.get(inputPath));
-        
-        // Filtrer les classes de test en fonction du seuil fourni 
-        List<Map<String, Object>> topThresholdClasses = getTopThresholdClasses(testClasses, seuil);
-        
-        // Sortir les détails des classes dans le seuil supérieur
-        try (PrintStream output = (outputPath != null) ? new PrintStream(new FileOutputStream(outputPath)) : System.out) {
-            topThresholdClasses.forEach(testClass -> output.println(testClass.toString()));
+        try{
+            List<ClassMetrics> metricsList = getMetricsFromDirectory(inputPath);
+            metricsList = metricsList.stream()
+                                      .filter(m -> isComplexe(m, threshold))
+                                      .collect(Collectors.toList());
+
+            try (PrintStream output = (outputPath != null) ? new PrintStream(new FileOutputStream(outputPath)) : System.out) {
+                metricsList.stream().forEach(m -> 
+                    output.printf("%s, %s, %s, %d, %d, %.2f%n", m.relativePath, m.packageName, m.className, m.tloc, m.tassert, m.tcmp)
+                );
+                output.close();
+            }       
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
     }
 
-    public static List<Map<String, Object>> processDirectory(String filePath) {
-        // traite le répertoire,
-        // calcule les mesures TLOC, TASSERT et TCMP et renvoie 
-       
+    // collect class metrics of all java files in the directory and its subdirectories
+    static List<ClassMetrics> getMetricsFromDirectory(String inputPath) {
+        
+        // Return metrics in a list
+        return new ArrayList<>();
     }
 
-    public static List<Map<String, Object>> getTopThresholdClasses(List<Map<String, Object>> testClasses, double seuil) {
-        // filtre les classes de test en fonction du seuil fourni. 
+    // check if a class is suspected to be complex (based on its metrics)
+    static boolean maybeComplex(ClassMetrics metrics, double threshold) {
+        // heuristic...
+        // return true if both TLOC and TCMP are in the top `threshold` percent of all classes
+        return false;
+    }
+
+    static class ClassMetrics {
+        String relativePath;
+        String packageName;
+        String className;
+        int tloc;
+        int tassert;
+        double tcmp;
     }
 }

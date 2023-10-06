@@ -21,27 +21,49 @@ public class tloc {
 
     public static int calculateTloc(String filePath) throws IOException {
         int tloc = 0;
+        boolean comment = false;
+        boolean javaDocComment = false;
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
-            boolean comment = false;
-
+            
             String line;
 
             while ((line = br.readLine()) != null) {
 
                 line=line.trim();
                  
-                if (!comment && line.startsWith("/*")) {
-                    comment = true;
+                if (comment || javaDocComment) {
+                    if (line.contains("*/")) {
+                        comment = false;
+                        javaDocComment = false;
+                        line = line.substring(line.indexOf("*/") + 2);
+                    }
+                    else {
+                        continue;
+                    }
+                    
                 }
 
-                if (comment && line.endsWith("*/")) {
-                    comment = false;
-                    continue;
+                if (line.startsWith("/**")) {
+                    javaDocComment = true;
+                    if (line.contains("*/")) {
+                        javaDocComment = false;
+                        line = line.substring(line.indexOf("*/") + 2);
+                    }
+                    else {
+                        continue;
+                    }
                 }
                 
-                if (comment) {
-                    continue;
+                if (line.startsWith("/*")) {
+                    comment = true;
+                    if (line.contains("*/")) {
+                        comment = false;
+                        line = line.substring(line.indexOf("*/") + 2);
+                    }
+                    else {
+                        continue;
+                    }
                 }
 
                 if (line.isEmpty() || line.startsWith("//")) {

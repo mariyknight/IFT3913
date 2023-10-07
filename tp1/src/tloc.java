@@ -7,7 +7,7 @@ public class tloc {
         // Vérification si l'argument du nom de fichier est passé
         if(args.length < 1){
             // Affiche le message d'informations sur comment passer le fichier en argument
-            System.out.println("Veuillez entrer dans le terminal: java tloc <path_to_java_file>");
+            System.out.println("Veuillez entrer dans le terminal: java tloc <path_to_file>");
             // Termine l'execution du programme
             System.exit(1);
         }

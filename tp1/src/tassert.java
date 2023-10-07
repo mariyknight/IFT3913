@@ -7,7 +7,7 @@ public class tassert {
     public static void main(String[] args) {
         //Vérifie si le nombre d'arguments est inférieur à 1.
         if (args.length < 1) {
-            System.out.println("Veuillez entrer dans le terminal: java tassert <path_to_java_file>");
+            System.out.println("Veuillez entrer dans le terminal: java tassert <path_to_file>");
             System.exit(1);
         }
 

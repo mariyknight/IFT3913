@@ -30,3 +30,12 @@ run jar:
 run java : java tropcomp -o <chemin-à-la-sortie.csv> <chemin-de-l'entrée> <seuil> <seuil>
 
 run jar : java -jar tropcomp.jar <chemin-de-l'entrée> <seuil>
+
+Pour avoir les résultats de etude-jfreechart, il faut générer 3 fichiers aux noms: output1.csv , output5.csv et output10.csv
+
+java -jar ./jars/tropcomp.jar -o etude-jfreechart/output1.csv ../jfreechart/src/test 1
+
+java -jar ./jars/tropcomp.jar -o etude-jfreechart/output5.csv ../jfreechart/src/test 5
+
+java -jar ./jars/tropcomp.jar -o etude-jfreechart/output10.csv ../jfreechart/src/test 10
+

@@ -11,19 +11,19 @@ compiler: javac tropcomp.java , javac tassert.java, javac tls.java, javac tloc.j
 
 run java: java tloc <path_to_file>
 
-run jar:
+run jar: java -jar tloc.jar <path_to_file>
 
 -tassert
 
 run java: java tassert <path_to_file>
 
-run jar:
+run jar: java -jar tassert.jar <path_to_file>
 
 -tls
 
 run java: java tls -o <chemin-à-la-sortie.csv> <chemin-de-l'entrée>
 
-run jar:
+run jar: java -jar tls.jar <chemin-de-l'entrée>
 
 -tropcomp
 

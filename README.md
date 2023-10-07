@@ -27,6 +27,6 @@ run jar:
 
 -tropcomp
 
-run java : java tropcomp -o <chemin-à-la-sortie.csv> <chemin-de-l'entrée> <seuil>.
+run java : java tropcomp -o <chemin-à-la-sortie.csv> <chemin-de-l'entrée> <seuil> <seuil>
 
 run jar : java -jar tropcomp.jar <chemin-de-l'entrée> <seuil>

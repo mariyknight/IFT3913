@@ -16,7 +16,7 @@ Q4 : Est-ce que les tests sont suffisamment documentés?
 
 ### TÂCHE 1 (40%)
 
-Complétez ce plan GQM en opérationnalisant les questions avec des métriques. Vous avez un «budget» de 15
+>Complétez ce plan GQM en opérationnalisant les questions avec des métriques. Vous avez un «budget» de 15
 métriques maximum et vous êtes encouragés à réutiliser des métriques pour plusieurs questions. Il n’est pas
 raisonnable de se baser sur une seule métrique pour répondre à une question. Essayez donc de baser votre analyse
 sur au minimum de 2-3 métriques par question.
@@ -29,9 +29,43 @@ que chacune est appropriée (condition de représentation) et rentable2
 NB : Lisez aussi la tâche 2. Les métriques que vous proposez doivent être implémentables dans les délais du projet.
 NB : Lisez aussi la tâche 3. Quand peut-on dire que la réponse à une question est « oui » ?
 
+#### Q1 : Est-ce qu’il y a assez de tests?
+
+Métrique M1 : Ratio taille du code / taille des tests
+
+Métrique M2 : TPC (Nombre de tests par classe)
+
+
+Explication : La métrique M1 donne une idée générale du niveau de test par rapport à la taille du code. Un ratio élevé pourrait indiquer un manque de tests. M2 se penche sur combien il y a de tests pour chaque classe, ce qui permet d’identifier si certaines classes sont sous-testées.
+
+#### Q2 : Est-ce qu’il y a assez de tests à jour avec le reste du code?
+
+Métrique M3 : AGE (l'âge d'un fichier) pour les fichiers de test et de code
+
+Métrique M4 : NCH (nombre de commits dans l’historique d’une classe)
+
+Explication : La métrique M3 compare les dates de dernière modification des fichiers de test et de code - s’il y a une grande différence, cela peut indiquer que les tests ne sont pas à jour. M4 peut indiquer combien de fois une classe a été modifiée, donc si une classe a été fréquemment modifiée mais ses tests pas autant, cela pourrait indiquer que les tests ne sont pas à jour.
+
+#### Q3 : Est-ce que les tests sont trop complexes?
+Métrique M5 : CC (Complexité cyclomatique d'une méthode) pour les méthodes de test
+
+Métrique M6 : LOC (Lines Of Code) pour les fichiers de test
+
+Explication: M5 donne une idée de la complexité des méthodes de test. Un CC élevé pour des tests pourrait indiquer une complexité excessive. M6 donne une idée de la longueur et de la complexité potentielle des fichiers de test.
+
+
+#### Q4 : Est-ce que les tests sont suffisamment documentés?
+Métrique M7 : DC (Densité de commentaires) pour les fichiers de test
+
+Métrique M8 : CLOC (Lignes de commentaires) pour les fichiers de test
+
+Métrique M9 : TLOC (Lignes code qui ne sont pas des commentaire) pour les fichiers
+
+Explication: M7, M8 et M9 peuvent montrer si suffisamment de commentaires sont présents dans les fichiers de test, ce qui peut indiquer le niveau de documentation. Un faible DC, CLOC et TLOC pourrait indiquer un manque de documentation.
+
 ### TÂCHE 2 (30%)
 
-Mesurez JFreeChart selon votre plan. Votre procédure de mesure doit être automatisée. Vous pouvez utiliser
+>Mesurez JFreeChart selon votre plan. Votre procédure de mesure doit être automatisée. Vous pouvez utiliser
 n’importe quel langage de script et outil externe (sauf le code des autres étudiants), y compris les programmes du
 TP1, les outils que nous avons discuté en classe (cloc, ckjm, …) et autres. Cependant, nous n'offrons pas de conseils
 sur l'utilisation des outils externes.
@@ -43,7 +77,7 @@ que vous avez collectées.
 
 ### TÂCHE 3 (30%)
 
-Répondez aux questions Q1, Q2, Q3, Q4 en vous basant sur vos données collectées.
+>Répondez aux questions Q1, Q2, Q3, Q4 en vous basant sur vos données collectées.
 Expliquez comment vous avez combiné les différentes métriques pour répondre à chaque question. Dans le cas où
 vous devez combiner des cas particuliers pour donner une réponse globale, vous pouvez définir une stratégie
 d’agrégation (par exemple : «si la réponse est oui pour 90% des cas, la réponse sera considérée oui globalement»

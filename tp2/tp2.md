@@ -73,7 +73,9 @@ Vous devez créer votre propre implémentation pour au minimum une métrique (m�
 Incluez les valeurs des différentes métriques proposées dans votre rapport et décrivez brièvement votre procédure
 de mesure.
 Expliquez dans votre readme.txt comment nous pouvons accéder à vos scripts et programmes, ainsi qu’aux données
-que vous avez collectées. 
+que vous avez collectées.
+
+utilisation dun script python pr api request etc...
 
 ### TÂCHE 3 (30%)
 

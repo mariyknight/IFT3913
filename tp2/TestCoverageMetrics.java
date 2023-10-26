@@ -20,6 +20,7 @@ public class TestCoverageMetrics {
         Files.walk(Paths.get(rootDirPath))
                 .filter(Files::isRegularFile)
                 .filter(p -> p.toString().endsWith(".java"))
+                .filter(p -> !isInterface(p))  // Only process the file if it's not an interface
                 .forEach(p -> {
                     try {
                         String fileName = p.getFileName().toString();
@@ -57,4 +58,21 @@ public class TestCoverageMetrics {
         System.out.printf("Average code size to test size ratio (M1): %.2f%%\n", average_percent);
     }
 
+    // To check if the provided file is an interface, by reading the first few lines
+    private static boolean isInterface(Path path) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(path.toFile()))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (line.trim().startsWith("public interface") || line.trim().startsWith("interface")) {
+                    return true;
+                }
+                if (line.trim().startsWith("public class") || line.trim().startsWith("class") || line.trim().startsWith("@")) {
+                    return false;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

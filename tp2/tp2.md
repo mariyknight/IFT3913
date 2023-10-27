@@ -102,6 +102,20 @@ En somme, bien que la complexité cyclomatique moyenne suggère que les tests ne
 
 >source pour interprétation de la complexité cyclomatique : https://www.codecentric.de/wissens-hub/blog/why-good-metrics-values-do-not-equal-good-quality
 
+#### Q4 :
+
+D'après les données collectées, la densité moyenne de commentaires dans les tests (M7) est de 32.37%. 
+
+Cette métrique indique la proportion de lignes de commentaire par rapport au nombre total de lignes de code. Une densité de commentaires de 32.37% indique qu'un tiers des lignes dans les fichiers de test sont des commentaires. 
+
+Il n'y a pas de consensus clair sur ce que devrait être la densité de commentaires idéale. Cependant, une densité d’environ 30% est souvent considérée comme acceptable dans l'industrie du logiciel. C'est parce qu'un code bien écrit devrait en grande partie se documenter lui-même, sans avoir besoin de commentaires excessifs. 
+
+Sur cette base, on pourrait dire que les tests sont suffisamment documentés. 
+
+Toutefois, la quantité de commentaires ne donne pas forcément une image complète de la qualité de la documentation. Par exemple, les commentaires peuvent être déroutants, trompeurs ou obsolètes. Il est également important de considérer le type de commentaires - par exemple, s'ils décrivent correctement l'intention des tests et les conditions d'entrée et de sortie. 
+
+Pour une évaluation plus précise de la documentation des tests, il serait donc utile de compléter cette analyse avec une évaluation qualitative des commentaires.
+
 ## PRÉCISIONS GLOBALES
 
 1. Travail à remettre le vendredi 27 octobre 23h59 via StudiUM. Aucun retard ne sera accepté.

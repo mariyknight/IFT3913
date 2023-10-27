@@ -35,8 +35,9 @@ Métrique M1 : Ratio taille du code / taille des tests
 
 Métrique M2 : TPC (Nombre de tests par classe)
 
-
 Explication : La métrique M1 donne une idée générale du niveau de test par rapport à la taille du code. Un ratio élevé pourrait indiquer un manque de tests. M2 se penche sur combien il y a de tests pour chaque classe, ce qui permet d’identifier si certaines classes sont sous-testées.
+
+Résultats : À partir des résultats obtenus avec les scripts ‘tloc’ et ‘TestCoverageMetrics’, nous pouvons affirmer que la couverture de tests pour ‘jfreechart’ est satisfaisante. Le ratio obtenu de la taille du code sur la taille des tests est de 35.85%. Dans notre analyse, nous considérons qu'un programme est suffisamment testé si ce ratio est inférieur à 50%. Un ratio de 50% signifie que la taille des tests représente la moitié de la taille du code, ce qui est déjà significatif. En d'autres termes, un ratio de 50% implique que pour chaque ligne de code, il y a 0.5 lignes de tests. Dans notre cas, un ratio de 35.85% est inférieur à ce seuil de 50%, ce qui indique que la taille des tests est plus importante par rapport à la taille du code, reflétant ainsi une bonne quantité de tests. Cependant, il est important de noter que ce ratio ne nous donne pas directement le nombre de tests par classe (TPC). Pour obtenir le TPC, il faudrait diviser le nombre total de tests par le nombre total de classes dans le code.
 
 #### Q2 : Est-ce qu’il y a assez de tests à jour avec le reste du code?
 

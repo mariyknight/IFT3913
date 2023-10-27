@@ -89,6 +89,17 @@ d’agrégation (par exemple : «si la réponse est oui pour 90% des cas, la ré
 ou «la réponse est considérée oui si la moyenne est supérieure de 80%» ). Expliquez vos choix!
 En vous basant sur vos réponses aux questions, proposez une évaluation de la facilité d’analyse du JFreeChart. Estce qu’une image claire émerge? Sinon, pourquoi?
 
+#### Q3 :
+D'après les données collectées, la complexité cyclomatique moyenne des tests (M5) est de 8.47 et le nombre moyen de lignes de code pour les fichiers de test (M6) est de 115.17.
+
+Selon les valeurs de référence pour la complexité cyclomatique définies par Carnegie Mellon, une complexité cyclomatique de 1 à 10 indique que les méthodes sont généralement simples et faciles à comprendre. Dans le cas présent, une complexité cyclomatique moyenne de 8.47 se trouve dans cette plage inférieure. On pourrait donc dire que, en se basant uniquement sur le critère de la complexité cyclomatique (M5), les tests ne sont pas trop complexes.
+
+Concernant le nombre moyen de lignes de code (M6) pour les fichiers de test, il n'existe pas de plage standard ou acceptée pour déterminer si cette valeur est excessive. Cependant, un fichier de test de plus de 100 lignes pourrait être considéré comme assez long et potentiellement complexe.
+
+Il est important de rappeler que la complexité dépend également d'autres facteurs, tels que la clarté du code et des commentaires, les pratiques de codage utilisées, etc. En outre, même si en moyenne les tests ne sont pas trop complexes, cela ne signifie pas nécessairement qu'il n'y a pas de tests individuels qui sont excessivement complexes.
+
+En somme, bien que la complexité cyclomatique moyenne suggère que les tests ne sont pas trop complexes, le nombre moyen élevé de lignes de code indique une certaine complexité. Il serait donc utile de compléter cette analyse avec d'autres indicateurs de complexité, ainsi que d'examiner la distribution des valeurs de M5 et M6 pour obtenir une évaluation plus complète.
+
 ## PRÉCISIONS GLOBALES
 
 1. Travail à remettre le vendredi 27 octobre 23h59 via StudiUM. Aucun retard ne sera accepté.

@@ -47,6 +47,8 @@ Métrique M4 : NCH (nombre de commits dans l’historique d’une classe)
 
 Explication : La métrique M3 compare les dates de dernière modification des fichiers de test et de code - s’il y a une grande différence, cela peut indiquer que les tests ne sont pas à jour. M4 peut indiquer combien de fois une classe a été modifiée, donc si une classe a été fréquemment modifiée mais ses tests pas autant, cela pourrait indiquer que les tests ne sont pas à jour.
 
+Résultats : Pour mesurer le métrique M3 (l’âge des fichiers), on a coInsulté sur Github les dates de dernière modification des de test et de code de sous fichier ‘jfreechart/src/test/java/org/jfree/chart/title’. On remarque la date de la dernière modification est le 1 Janvier 2022 pour le code et 3 Janvier 2022 pour les tests. Il y a une différence de 2 jours entre ces modifications et on considère qu’il y a assez de tests à jour avec le reste du code si l’écart est moins d’une semaine. D’autre part, on remarque qu’il y a 26 commits pour les codes 17 commits pour les tests dans la classe ‘title’. Il s’agit d’un écart de 35 %, ce qui est considéré assez de commits dans l’historique, car les codes et les tests ont été fréquemment modifiée.
+
 #### Q3 : Est-ce que les tests sont trop complexes?
 Métrique M5 : CC (Complexité cyclomatique d'une méthode) pour les méthodes de test
 

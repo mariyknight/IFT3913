@@ -100,6 +100,8 @@ Il est important de rappeler que la complexité dépend également d'autres fact
 
 En somme, bien que la complexité cyclomatique moyenne suggère que les tests ne sont pas trop complexes, le nombre moyen élevé de lignes de code indique une certaine complexité. Il serait donc utile de compléter cette analyse avec d'autres indicateurs de complexité, ainsi que d'examiner la distribution des valeurs de M5 et M6 pour obtenir une évaluation plus complète.
 
+>source pour interprétation de la complexité cyclomatique : https://www.codecentric.de/wissens-hub/blog/why-good-metrics-values-do-not-equal-good-quality
+
 ## PRÉCISIONS GLOBALES
 
 1. Travail à remettre le vendredi 27 octobre 23h59 via StudiUM. Aucun retard ne sera accepté.

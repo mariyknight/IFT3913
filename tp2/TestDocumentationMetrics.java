@@ -35,6 +35,7 @@ public class TestDocumentationMetrics {
         double average_percent = averageDC * 100; // Convert average ratio to percentage
         System.out.printf("Average Test Comment Density (M7): %.2f%%\n", average_percent);
 
+
     }
 
     // Calculate number of comment lines (CLOC) in a file
@@ -42,10 +43,27 @@ public class TestDocumentationMetrics {
         try (BufferedReader reader = new BufferedReader(new FileReader(path.toFile()))) {
             String line;
             int commentLineCount = 0;
+            boolean ignoreSection = false;
+
             while ((line = reader.readLine()) != null) {
                 line = line.trim();
-                if (line.startsWith("//") || line.startsWith("/*") || line.startsWith("*")) {
-                    commentLineCount++;
+
+                // Check for start of section to ignore.
+                if (line.equals("/* ===========================================================")) {
+                    ignoreSection = true;
+                }
+
+                // Check for end of section to ignore.
+                if (line.equals("*/")) {
+                    ignoreSection = false;
+                    continue;
+                }
+
+                // Do not count lines in the ignored section.
+                if (!ignoreSection) {
+                    if (line.startsWith("//") || line.startsWith("/*") || line.startsWith("*")) {
+                        commentLineCount++;
+                    }
                 }
             }
             return commentLineCount;

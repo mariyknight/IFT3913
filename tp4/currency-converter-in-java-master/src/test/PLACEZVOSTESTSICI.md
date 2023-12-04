@@ -1,9 +1,5 @@
 Places vos tests ici. Utilisation de JUnit5 requise.
 
-//Test boite noire MainWindow
-
-//Test boite blanc MainWindow
-
 //Test boite noire Currency
 
 @Test
@@ -62,3 +58,7 @@ public void testCurrencyAmountOverLimit() {
         }
     }
 }
+
+//Test boite noire MainWindow
+
+//Test boite blanc MainWindow

@@ -43,3 +43,22 @@ public void testCurrencyConversionForMaxAndMinAmount() {
         }
     }
 }
+
+@Test
+public void testCurrencyAmountOverLimit() {
+        
+    ArrayList<Currency> currencies = Currency.init();
+
+    for (Currency currency : currencies) {
+        for (Double exchangeValue : currency.getExchangeValues().values()) {
+            
+            Double amountOverBottomLimit = -100;
+            assertNull(Currency.convert(amountOverBottomLimit, exchangeValue));
+
+                
+            Double amountOverTopLimit = 1000000000;
+            assertNull(Currency.convert(amountOverTopLimit, exchangeValue));
+
+        }
+    }
+}

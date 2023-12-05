@@ -114,6 +114,8 @@ public void testMainWindowConvertForMaxAndMinAmount(){
 }
 
 public void testMainWindowConvertForAmountOverLimit(){
+    ArrayList<Currency> currencies = Currency.init();
+
     for (Currency currencyFrom : currencies) {
         for (Currency currencyTo : currencies) {
 

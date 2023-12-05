@@ -3,7 +3,7 @@ Places vos tests ici. Utilisation de JUnit5 requise.
 //Test boite noire Currency
 
 @Test
-public void testCurrencyConversionForAllPairs() {
+public void testCurrencyConvertForAllPairs() {
     ArrayList<Currency> currencies = Currency.init();
 
     for (Currency currencyFrom : currencies) {
@@ -22,7 +22,7 @@ public void testCurrencyConversionForAllPairs() {
 //Test boite blanc Currency
 
 @Test
-public void testCurrencyConversionForMaxAndMinAmount() {
+public void testCurrencyConvertForMaxAndMinAmount() {
     ArrayList<Currency> currencies = Currency.init();
 
     for (Currency currencyTest : currencies) {
@@ -41,7 +41,7 @@ public void testCurrencyConversionForMaxAndMinAmount() {
 }
 
 @Test
-public void testCurrencyAmountOverLimit() {
+public void testCurrencyConvertAmountOverLimit() {
         
     ArrayList<Currency> currencies = Currency.init();
 
@@ -61,4 +61,17 @@ public void testCurrencyAmountOverLimit() {
 
 //Test boite noire MainWindow
 
+@Test
+public void testMainWindowConvertForAllPairs(){
+
+}
+
 //Test boite blanc MainWindow
+
+public void testMainWindowConvertForMaxAndMinAmount(){
+    
+}
+
+public void testMainWindowConvertForAmountOverLimit(){
+    
+}

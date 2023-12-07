@@ -1,6 +1,10 @@
 {
     "java.configuration.updateBuildConfiguration": "interactive",
     "java.project.sourcePaths": [
-        "tp4\\currency-converter-in-java-master\\src\\currencyConverter"
+        "tp4\\currency-converter-in-java-master",
+        "tp4\\currency-converter-in-java-master\\src\\currencyConverter",
+        "tp4\\currency-converter-in-java-master\\src\\test",
+        "tp4\\currency-converter-in-java-master\\src\\test\\java\\test",
+        "tp4"
     ]
 }

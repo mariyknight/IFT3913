@@ -4,6 +4,8 @@ package test;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 import currencyConverter.Currency;
 import currencyConverter.MainWindow;

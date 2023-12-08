@@ -65,14 +65,14 @@ public class MainWindowConverterBlackBoxTests {
             for (Currency currencyTo : currencies) {
 
                 Double amountOverBottomLimit = -10000;
-                Double convertedAmount = MainWindow.convert(currencyFrom.getShortName(), currencyTo.getShortName(), currencies, amountOverBottomLimit);
+                Double convertedAmountOverBottomLimit = MainWindow.convert(currencyFrom.getShortName(), currencyTo.getShortName(), currencies, amountOverBottomLimit);
 
-                assertNull(convertedAmount);
+                assertNull(convertedAmountOverBottomLimit);
 
                 Double amountOverTopLimit = 9999999;
-                Double convertedAmount = MainWindow.convert(currencyFrom.getShortName(), currencyTo.getShortName(), currencies, amountOverTopLimit);
+                Double convertedAmountOverTopLimit = MainWindow.convert(currencyFrom.getShortName(), currencyTo.getShortName(), currencies, amountOverTopLimit);
 
-                assertNull(convertedAmount);
+                assertNull(convertedAmountOverTopLimit);
             }
         }
     }

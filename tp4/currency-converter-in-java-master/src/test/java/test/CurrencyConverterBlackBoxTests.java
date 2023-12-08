@@ -41,12 +41,12 @@ public class CurrencyConverterBlackBoxTests {
 
         for (Currency currencyTest : currencies) {
             for (Double exchangeValue : currencyTest.getExchangeValues().values()) {
-                Double minAmount = 0;
+                Double minAmount = 0.0;
                 Double convertedMinAmount = Currency.convert(minAmount, exchangeValue);
 
                 assertNull(convertedMinAmount);
 
-                Double maxAmount = 1000000;
+                Double maxAmount = 1000000.0;
                 Double convertedMaxAmount = Currency.convert(maxAmount, exchangeValue);
 
                 assertNotNull(convertedMaxAmount);
@@ -62,11 +62,11 @@ public class CurrencyConverterBlackBoxTests {
         for (Currency currency : currencies) {
             for (Double exchangeValue : currency.getExchangeValues().values()) {
                 
-                Double amountOverBottomLimit = -100;
+                Double amountOverBottomLimit = -100.0;
                 assertNull(Currency.convert(amountOverBottomLimit, exchangeValue));
 
                     
-                Double amountOverTopLimit = 1000000000;
+                Double amountOverTopLimit = 1000000000.0;
                 assertNull(Currency.convert(amountOverTopLimit, exchangeValue));
 
             }

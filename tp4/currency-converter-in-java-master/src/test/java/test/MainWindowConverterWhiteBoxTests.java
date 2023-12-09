@@ -22,7 +22,13 @@ public class MainWindowConverterWhiteBoxTests {
     }
 
     @Test
-    public void testMainWindowInvalidAmountConversion() {
+    public void testMainWindowInvalidAmountOverConversion() {
+        double convertedAmount = MainWindow.convert("Chinese Yuan Renminbi", "Japanese Yen", currencies, 1000001.0);
+        assertEquals(-1.0, convertedAmount);
+    }
+
+    @Test
+    public void testMainWindowInvalidAmountUnderConversion() {
         double convertedAmount = MainWindow.convert("Chinese Yuan Renminbi", "Japanese Yen", currencies, -10000.0);
         assertEquals(-1.0, convertedAmount);
     }
@@ -40,20 +46,8 @@ public class MainWindowConverterWhiteBoxTests {
     }
 
     @Test
-    public void testMainWindowAmountOverLimitConversion() {
-        double convertedAmount = MainWindow.convert("Chinese Yuan Renminbi", "Japanese Yen", currencies, 1000001.0);
-        assertEquals(-1.0, convertedAmount);
-    }
-
-    @Test
-    public void testMainWindowInvalidCurrenciesAndInvalidAmount() {
+    public void testMainWindowInvalidCurrenciesAndInvalidAmountConversion() {
         double convertedAmount = MainWindow.convert("ABC", "XYZ", currencies, -1.51);
         assertEquals(-1.0, convertedAmount);
-    }
-
-    @Test
-    public void testMainWindowMaxAmount() {
-        double convertedAmount = MainWindow.convert("Chinese Yuan Renminbi", "Japanese Yen", currencies, 1000000.0);
-        assertNotNull(convertedAmount);
     }
 }

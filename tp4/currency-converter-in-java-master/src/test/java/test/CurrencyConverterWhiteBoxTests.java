@@ -10,43 +10,43 @@ import currencyConverter.Currency;
 public class CurrencyConverterWhiteBoxTests {
 
     @Test 
-    public void testUSDToEURConversion() {
+    public void testCurrencyUSDToEURConversion() {
         double convertedAmount = Currency.convert(100.0, 0.93);
         assertEquals(93.0, convertedAmount);
     }
 
     @Test 
-    public void testInvalidAmount() {
+    public void testCurrencyInvalidAmount() {
         double convertedAmount = Currency.convert(-100.0, 0.93);
         assertEquals(-1.0, convertedAmount);
     }
 
     @Test
-    public void testZeroExchangeRate() {
+    public void testCurrencyZeroExchangeRate() {
         double convertedAmount = Currency.convert(100.0, 0.0);
         assertEquals(0.0, convertedAmount);
     }
 
     @Test
-    public void testInvalidExchangeRate() {
+    public void testCurrencyInvalidExchangeRate() {
         double convertedAmount = Currency.convert(100.0, -0.93);
         assertEquals(-1.0, convertedAmount);
     }
 
     @Test
-    public void testMinAmountInvalidExchangeRate() {
+    public void testCurrencyMinAmountInvalidExchangeRate() {
         double convertedAmount = Currency.convert(0.0, -0.93);
         assertEquals(-1.0, convertedAmount);
     }
 
     @Test
-    public void testMaxAmountInvalidExchangeRate() {
+    public void testCurrencyMaxAmountInvalidExchangeRate() {
         double convertedAmount = Currency.convert(1000000.0, -0.93);
         assertEquals(-1.0, convertedAmount);
     }
 
     @Test
-    public void testInvalidAmountInvalidExchangeRate() {
+    public void testCurrencyInvalidAmountInvalidExchangeRate() {
         double convertedAmount = Currency.convert(-100.0, -0.93);
         assertEquals(-1.0, convertedAmount);
     }

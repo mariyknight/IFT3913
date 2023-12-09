@@ -78,7 +78,7 @@ public class MainWindowConverterBlackBoxTests {
     }
 
     @Test
-    public void testConversionInvalidCurrency() {
+    public void testMainWindowConversionInvalidCurrency() {
         double amount = 100.0;
         double convertedAmount = MainWindow.convert("ABC", "XYZ", currencies, amount);
         assertEquals(-1, convertedAmount);
